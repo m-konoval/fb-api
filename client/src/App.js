@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FacebookLog from './components/FacebookLog';
 
 class App extends Component {
     render() {
@@ -8,7 +7,7 @@ class App extends Component {
 
                 <h1>APP work</h1>
 
-                <FacebookLog />
+                <a href="/auth/facebook">Facebook</a>
 
             </div>
         );
