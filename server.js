@@ -3,14 +3,13 @@ const express = require('express'),
     cors = require('cors'),
     path = require('path'),
     mongoose = require('mongoose'),
-    passport = require('passport'),
     fs = require('fs'),
-    https = require('https');
+    https = require('https'),
+    bodyParser = require('body-parser');
 const app = express();
 
 // routes
-const usersRouter = require('./routes/users'),
-    auth = require('./routes/auth');
+const auth = require('./routes/auth');
 
 
 // SECURITY certs
@@ -22,7 +21,7 @@ const securityKey = fs.readFileSync(__dirname + '/security/selfsigned.key', 'utf
 
 // Allow cross-origin
 app.use(cors());
-app.use(passport.initialize());
+app.use(bodyParser.json());
 
 
 // DB connection
@@ -36,7 +35,6 @@ mongoose.connect(mongoURI, { useNewUrlParser: true })
 
 // ROUTES
 app.use('/auth', auth);
-app.use('/users', usersRouter);
 
 
 // Serve static assets if in production
