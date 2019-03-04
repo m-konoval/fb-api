@@ -8,10 +8,10 @@ const FacebookAuth = require('../passport/FacebookAuth');
 // get params:
 // @connect to FB API and get access token
 router.get('/facebook',
-    FacebookAuth.authenticate('facebook', {
-        failureRedirect: '/',
-        scope: ['user_posts']
-    }));
+  FacebookAuth.authenticate('facebook', {
+    failureRedirect: '/'
+    // ,scope: ['user_posts'] // set scope for user permissions to get data from FB
+  }));
 
 
 // After FB logged this be using for manage responce
@@ -20,16 +20,16 @@ router.get('/facebook',
 // @Manage responce from FB API
 router.get('/facebook/callback',
 
-    FacebookAuth.authenticate('facebook',
-        { failureRedirect: '/' },
+  FacebookAuth.authenticate('facebook',
+    { failureRedirect: '/' },
 
-        function (req, res) {
-            console.log(req, res);
-            //res.send('from facebook/callback')
-            //res.redirect('/');
-            // Database save options
-        }
-    ));
+    function (req, res) {
+      console.log(req, res);
+      //res.send('from facebook/callback')
+      //res.redirect('/');
+      // Database save options
+    }
+  ));
 
 
 

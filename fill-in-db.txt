@@ -1,0 +1,35 @@
+
+// request manager Postman
+
+// global
+//chose  "content-type": "application/json"
+
+
+// posts
+// GET uri, POST uri
+http://localhost:8443/api/posts
+
+// POST body
+{
+  "name": "test post 3",
+  "message": "test post message 3"
+}
+
+
+
+// events
+// GET uri, POST uri
+http://localhost:8443/api/events
+
+
+// POST body
+{
+    "name": "event 1",
+    "description": "this test event 1",
+    "place": {
+        "name": "test place 1",
+        "location": "test location 1"
+    },
+    "start_date": "2019-03-05T13:38:17.346Z",
+    "end_date": "2019-03-06T12:38:17.346Z"
+}
