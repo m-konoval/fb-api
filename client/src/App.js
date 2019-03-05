@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 
+// Styles CSS
+import './assets/css/bootstrap.min.css';
+import './assets/css/font-awesome.min.css';
+import './assets/css/style.css'
 
 class App extends Component {
   render() {
