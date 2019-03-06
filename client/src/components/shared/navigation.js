@@ -12,23 +12,19 @@ export const menu = [
 export const categories = [
   {
     name: 'Тренінги',
-    to: '/category/trainings',
-    style: 'cat-1'
+    to: '/category/trainings'
   },
   {
     name: 'Консультації',
-    to: '/category/consultation',
-    style: 'cat-2'
+    to: '/category/consultation'
   },
   {
     name: 'Дифектологія',
-    to: '/category/defectology',
-    style: 'cat-3'
+    to: '/category/defectology'
   },
   {
     name: 'Творчість',
-    to: '/category/art',
-    style: 'cat-4'
+    to: '/category/art'
   }
 ]
 
