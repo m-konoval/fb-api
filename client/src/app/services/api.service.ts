@@ -14,7 +14,7 @@ const header = new HttpHeaders({
 })
 export class ApiService {
 
-  URI = 'http://localhost:8443/api/posts';
+  URI = '/api/posts';
 
 
   constructor(private http: HttpClient) { }

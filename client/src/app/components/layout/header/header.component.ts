@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { menuScope, categoriesScope } from './../../shared/navigation';
+
 
 @Component({
   selector: 'app-header',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
+  public menu;
+  public categories;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    this.menu = menuScope;
+    this.categories = categoriesScope;
+  }
+
+  navigateTo(link: string): void {
+    this.router.navigate([link]);
   }
 
 }

@@ -1,3 +1,25 @@
-<p>
-  header works!
-</p>
+<mat-toolbar>
+
+  <div class="layout-container _row">
+
+    <div class="logo">
+      logo
+    </div>
+
+    <nav class="menu">
+      <a mat-button
+      *ngFor="let item of menu"
+      (click)="navigateTo(item.link)"
+      [innerText]="item.name"></a>
+    </nav>
+
+    <nav class="categories">
+      <a mat-button
+      *ngFor="let item of categories"
+      (click)="navigateTo(item.link)"
+      [innerText]="item.name"></a>
+    </nav>
+
+  </div>
+
+</mat-toolbar>
