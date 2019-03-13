@@ -23,7 +23,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newPost = new Post({
     name: req.body.name,
-    message: req.body.message
+    message: req.body.message,
+    type: 'post'
   });
 
   newPost

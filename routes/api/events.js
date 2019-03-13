@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newEvent = new Event({
     name: req.body.name,
+    type: 'event',
     description: req.body.description,
     place: {
       name: req.body.place.name,

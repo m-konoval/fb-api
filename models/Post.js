@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
   name: String,
+  type: String,
   message: String,
   create_date: {
     type: Date,
