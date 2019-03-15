@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { all } from 'q';
+import { Observable, merge } from 'rxjs';
 
 
 const header = new HttpHeaders({
@@ -21,11 +20,21 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getPosts(): Observable<any> {
+  private getPosts() {
     return this.http.get(this.postURI);
   }
 
-  public getEvents(): Observable<any> {
+  private getEvents() {
     return this.http.get(this.eventURI);
   }
+
+
+  public getAll(): Observable<any> {
+    const postRes = this.getPosts();
+    const eventsRes = this.getEvents();
+
+    return merge(postRes, eventsRes);
+  }
+
+
 }

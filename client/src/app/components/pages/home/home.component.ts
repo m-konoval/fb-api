@@ -7,24 +7,22 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
-
-  posts: any[];
-  trainings: any[];
-  allArt: any[];
+  pageContent: any[] = [];
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getPosts().subscribe( p => {
-      this.posts = p;
+    this.api.getAll().subscribe(res => {
+      // res.map(category => {
+      //   category.map(item => {
+      //     this.pageContent.push(item);
+      //   });
 
-      console.log(this.posts);
-    });
+      // });
 
-    this.api.getEvents().subscribe( ev => {
-      this.trainings = ev;
-      console.log(this.trainings);
+      this.pageContent = res;
 
+      console.log(this.pageContent);
     });
   }
 
