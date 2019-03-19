@@ -1,11 +1,16 @@
 <mat-grid-list cols="3" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let post of pageContent">
-    <div>
-      <div>{{post.name}}</div>
-      <br>
-      <div>{{post.message}}</div>
-      <br>
-      <div>{{post.type}}</div>
-    </div>
-  </mat-grid-tile>
+  <div *ngIf="isLoading">
+    loading ...
+  </div>
+
+  <div *ngIf="!isLoading">
+    <mat-grid-tile *ngFor="let post of pageContent | catfilter: filterQuery">
+      <div>
+        <div>{{post.name}}</div>
+        <br>
+        <br>
+        <div>{{post.type}}</div>
+      </div>
+    </mat-grid-tile>
+  </div>
 </mat-grid-list>

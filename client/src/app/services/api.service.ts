@@ -1,40 +1,54 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, merge } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
-const header = new HttpHeaders({
-  'Content-Type': 'application/json'
-});
-
+// MODELs
+import { Post } from '../models/Post';
+import { Event } from '../models/Event';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
+  // init Const values
+  private header = new HttpHeaders({
+    'Content-Type': 'application/json'
+  });
   private postURI = '/api/posts';
   private eventURI = '/api/events';
 
 
   constructor(private http: HttpClient) { }
 
-  private getPosts() {
-    return this.http.get(this.postURI);
+
+  // Send merged response To component
+  public getContent(): Observable<(Post | Event)[]> {
+    // return Ready response
+    return forkJoin(this.reqPosts(), this.reqEvents()).pipe(
+      map(([postRes, eventRes]) => {
+        return [...postRes, ...eventRes];
+      })
+    );
+
   }
 
-  private getEvents() {
-    return this.http.get(this.eventURI);
+
+  // GET request to Posts API
+  private reqPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.postURI).pipe(
+      map(res => res)
+    );
   }
 
 
-  public getAll(): Observable<any> {
-    const postRes = this.getPosts();
-    const eventsRes = this.getEvents();
-
-    return merge(postRes, eventsRes);
+  // GET request to Events API
+  private reqEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.eventURI).pipe(
+      map(res => res)
+    );
   }
-
 
 }

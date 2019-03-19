@@ -8,16 +8,16 @@
 
     <nav class="menu">
       <a mat-button
-      *ngFor="let item of menu"
-      (click)="navigateTo(item.link)"
-      [innerText]="item.name"></a>
+        *ngFor="let item of menu"
+        (click)="handleRoute(item.link)"
+        [innerText]="item.name"></a>
     </nav>
 
     <nav class="categories">
       <a mat-button
-      *ngFor="let item of categories"
-      (click)="navigateTo(item.link)"
-      [innerText]="item.name"></a>
+        *ngFor="let item of categories"
+        (click)="handleFilter(item.category)"
+        [innerText]="item.name"></a>
     </nav>
 
   </div>

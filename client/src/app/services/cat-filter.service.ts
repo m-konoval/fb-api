@@ -1,20 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatFilterService {
+  filterSting = null;
+
+  @Output()
+    applyCaterory: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
-  choseCategory( articles, creteria ) {
-    const allArticles = articles;
-
-    allArticles.filter(item => {
-      if ( item.type === creteria ) {
-        return item;
-      }
-    });
-
+  choseCategory( catValue ) {
+    this.filterSting = catValue;
+    this.applyCaterory.emit(this.filterSting);
   }
 }

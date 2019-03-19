@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
 // @access  public
 router.delete('/:id', (req, res) => {
 
-  Post.findById(req.params.id)
+  Event.findById(req.params.id)
     .then(
       item =>
         item.remove()

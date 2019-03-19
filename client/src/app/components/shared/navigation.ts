@@ -4,6 +4,6 @@ export const menuScope = [
 ];
 
 export const categoriesScope = [
-  {name: 'Тренінги', link: '/'},
-  {name: 'Дифектологія', link: '/contact'}
+  {name: 'Тренінги', category: 'event'},
+  {name: 'Дифектологія', category: 'post'}
 ];
