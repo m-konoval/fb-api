@@ -1,6 +1,10 @@
 <mat-grid-list cols="3" rowHeight="1:1">
   <div *ngIf="isLoading">
     loading ...
+    <mat-spinner
+      [strokeWidth]="5"
+      [diameter]="80">
+    </mat-spinner>
   </div>
 
   <div *ngIf="!isLoading">

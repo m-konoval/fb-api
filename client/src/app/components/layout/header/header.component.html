@@ -9,15 +9,13 @@
     <nav class="menu">
       <a mat-button
         *ngFor="let item of menu"
-        (click)="handleRoute(item.link)"
-        [innerText]="item.name"></a>
+        (click)="handleRoute(item.link)">{{item.name}}</a>
     </nav>
 
     <nav class="categories">
-      <a mat-button
+      <button mat-button
         *ngFor="let item of categories"
-        (click)="handleFilter(item.category)"
-        [innerText]="item.name"></a>
+        (click)="handleFilter(item.category)">{{item.name}}</button>
     </nav>
 
   </div>
